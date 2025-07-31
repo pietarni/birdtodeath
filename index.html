@@ -4,89 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bird to Death</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Montserrat', sans-serif;
-      color: #fff;
-      background: #111;
+      font-family: 'Poppins', sans-serif;
+      color: #2c3e50;
+      background: linear-gradient(to bottom, #87CEFA 0%, #E0FFFF 100%);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
     header {
+      position: relative;
       padding: 2rem;
       text-align: center;
-      background: #1a1a1a;
     }
     header h1 {
       font-size: 3rem;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      color: #1a237e;
     }
     header p {
       margin-top: 0.5rem;
       font-size: 1.2rem;
-      color: #ccc;
+      color: #34495e;
+    }
+    /* Flapping bird */
+    .bird {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      width: 80px;
+      animation: flap 0.8s infinite ease-in-out;
+    }
+    @keyframes flap {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(-2deg); }
+    }
+    /* Drifting clouds */
+    .clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200px;
+      background: url('clouds.png') repeat-x;
+      opacity: 0.5;
+      animation: drift 60s linear infinite;
+    }
+    @keyframes drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
     .hero {
       flex: 1;
-      background: url('hero.jpg') center/cover no-repeat;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      padding: 2rem;
     }
     .btn {
-      margin-top: 1rem;
-      padding: 1rem 2rem;
-      background: #e63946;
-      color: #fff;
+      margin-top: 1.5rem;
+      padding: 1rem 2.5rem;
+      background: #FFD54F;
+      color: #2c3e50;
       text-decoration: none;
-      font-weight: 700;
-      border-radius: 30px;
-      transition: background 0.3s ease;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: transform 0.3s ease;
     }
     .btn:hover {
-      background: #d62828;
+      transform: scale(1.05);
     }
     footer {
       padding: 1rem;
       text-align: center;
-      background: #000;
+      background: rgba(0,0,0,0.1);
     }
     .social a {
       margin: 0 0.5rem;
       font-size: 1.5rem;
-      color: #fff;
-      transition: color 0.3s ease;
+      color: #34495e;
+      transition: color 0.3s;
     }
     .social a:hover {
-      color: #e63946;
+      color: #e67e22;
     }
   </style>
 </head>
 <body>
+  <!-- Drifting clouds behind header -->
+  <div class="clouds"></div>
+
   <header>
     <h1>Bird to Death</h1>
     <p>Survive the skies or perish trying.</p>
+    <!-- Placeholder for flapping bird SVG/png -->
+    <img src="bird-flap.png" alt="Flapping Bird" class="bird">
   </header>
+
   <section class="hero">
-    <!-- Replace 'hero.jpg' with your actual game splash image -->
+    <!-- Hero image or background could go here -->
     <a href="#" class="btn">Play Now</a>
   </section>
+
   <footer>
     <div class="social">
-      <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-      <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/yourchannel" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-      <a href="https://discord.gg/yourinvite" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
     </div>
     <p>&copy; 2025 Bird to Death</p>
   </footer>
