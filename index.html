@@ -1,54 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bird to Death</title>
-  <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Poppins', sans-serif;
-      background: #111;
-      color: #fff;
-      text-align: center;
-    }
-    h1 {
-      font-size: 4rem;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #bbb;
-    }
-    .social a {
-      margin: 0 0.5rem;
-      font-size: 1.5rem;
-      color: #fff;
-      transition: color 0.3s;
-    }
-    .social a:hover {
-      color: #e63946;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'From Bird To Death'</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Bird to Death</h1>
-  <p>Coming Soon</p>
-  <div class="social">
-    <a href="https://www.instagram.com/sillythingsxyz/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/SillyThingsXYZ" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.youtube.com/@sillythingsxyz?sub_confirmation=1" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
+
+<div id="wrap">
+  <header>
+    <div id="header_container">
+      <a id="logo" href="/">'From Bird To Death'</a>
+      <button id="menu_toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        <li><a href="/">Home</a></li>
+        <li>
+          <a href="/Steam">Game</a>
+        </li>
+        <li><a href="/community">Community</a></li>
+        <li><a href="/store">Store</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="left">
+      <div class="video">
+        <div class="embed">
+          <iframe 
+            src="https://www.youtube.com/embed/01nr2ctnZ2o" 
+            title="Trailer" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <p>
+        'From Bird To Death' is a unique game in which you get to experience life as a bird in the city of Helsinki.
+        <br>The entire city is yours to explore and survive in, meeting other birds along the way.
+        <br>The game is currently in development, and an early access version will be released in the beginning of September, with frequent updates.
+      </p>
+    </section>
+
+    <aside id="animals">
+      <p><a href="/store" class="button button_buy_now">Buy now</a></p>
+      <p>
+        Play 'From Bird To Death'<br>
+        <a href="/play">In browser</a> | <a href="/download">Steam</a>
+      </p>
+    </aside>
+
+    <!-- Clears floats inside #main -->
+  </main>
+
+  <footer>
+    Created by: www.sillythings.xyz
+  </footer>
+</div>
+
+<script>
+/* Simple mobile menu toggle without changing desktop behavior */
+const btn = document.getElementById('menu_toggle');
+const menu = document.getElementById('menu');
+btn.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(open));
+});
+</script>
+
 </body>
 </html>

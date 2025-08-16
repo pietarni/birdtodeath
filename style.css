@@ -1,0 +1,200 @@
+/* -------- Baseline & bug fixes -------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+html { overflow-x: hidden; }
+
+body {
+  margin: 0;
+  font: 27px/1.4 "Helvetica Neue", Arial, sans-serif; /* 18 → 27 */
+  color: #e0d0d0;
+  background: #111 url("images/bg_main.png") repeat;
+}
+
+/* -------- Structure (footer stays at bottom) -------- */
+#wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#main {
+  width: 100%;
+  max-width: 1500px;              /* 1000 → 1500 */
+  margin: 0 auto;
+  padding: 18px 18px 36px;        /* 12/24 → 18/36 */
+  flex: 1;
+}
+#main::after { content: ""; display: block; clear: both; }
+
+/* -------- Header -------- */
+header {
+  height: 75px;                   /* 50 → 75 */
+  background: #211710 url("images/bg_top.png") repeat-x center top;
+  background-size: auto 100%;
+}
+#header_container {
+  width: 100%;
+  max-width: 1500px;              /* 1000 → 1500 */
+  margin: 0 auto;
+  padding: 0 18px;                /* 12 → 18 */
+  position: relative;
+}
+#logo {
+  float: left;
+  width: 390px;                   /* 260 → 390 */
+  height: 72px;                   /* 48 → 72 */
+  background: url("images/logo.png") no-repeat 0 2px;
+  background-size: 390px 72px;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+/* Mobile menu button */
+#menu_toggle {
+  display: none;
+  position: absolute;
+  right: 18px;                    /* 12 → 18 */
+  top: 14px;                      /* 9 → 14 */
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;         /* 1 → 2 */
+  padding: 6px 12px;              /* 4/8 → 6/12 */
+  font-weight: bold;
+}
+
+/* Primary nav */
+#menu {
+  float: left;
+  margin-left: 0;
+}
+#menu li { float: left; margin-left: 15px; position: relative; } /* 10 → 15 */
+#menu li a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow:
+      0 0 3px #000,
+      0 0 3px #000,
+      0 0 3px #000,
+      0 0 3px #000; /* soft blurred glow/outline */
+  }
+#menu li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #333;
+  white-space: nowrap;
+}
+#menu li:hover ul { display: block; }
+#menu li ul li a { display: block; padding: 9px 15px; } /* 6/10 → 9/15 */
+#menu li ul li a:hover { background: #444; }
+#menu li::marker { content: ""; }
+
+#userbox {
+  float: right;
+  padding: 21px 0;                /* 14 → 21 */
+  color: #fff;
+}
+
+/* -------- Columns -------- */
+section.left { float: left; width: 960px; } /* 640 → 960 */
+aside {
+  float: right;
+  width: 450px;                   /* 300 → 450 */
+  text-align: center;
+  padding-top: 345px;             /* 230 → 345 */
+  background: url("images/animals.png") no-repeat top center;
+  background-size: 450px auto;    /* 300 → 450 */
+  image-rendering: pixelated;
+}
+
+/* Video */
+.video { margin-bottom: 24px; }   /* 16 → 24 */
+.embed {
+  position: relative;
+  width: 100%;
+  max-width: 945px;               /* 630 → 945 */
+  aspect-ratio: 18 / 10;
+  background: #000;
+}
+.embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Button sprite */
+.button_buy_now {
+  display: inline-block;
+  width: 318px;                   /* 212 → 318 */
+  height: 66px;                   /* 44 → 66 */
+  background: url("images/buy_now.png") no-repeat;
+  background-size: 318px 66px;
+  image-rendering: pixelated;
+  text-indent: -9999px;
+}
+.small { font-size: 17px; }       /* 11 → 17 */
+
+/* -------- Social three columns -------- */
+.three_col { float: left; width: 450px; margin: 3em 30px 0 0; } /* 300/20 → 450/30 */
+.three_col:last-child { margin-right: 0; }
+.social h2 { color: #fff; font-size: 27px; margin-bottom: .75em; } /* 18 → 27 */
+.social p { font-size: 20px; color: #ddd; }                       /* 13 → 20 */
+
+/* -------- Footer -------- */
+footer {
+  text-align: center;
+  color: #777;
+  padding: 21px 0;                /* 14 → 21 */
+  background: #111;
+}
+
+/* -------- Links -------- */
+a { color: #aaf; }
+a:hover { color: #fff; }
+
+/* -------- Responsive tweaks -------- */
+@media (max-width: 1536px) { /* 1024 × 1.5 */
+  /* same rules, scaled container already handled */
+}
+@media (max-width: 1440px) { /* 960 × 1.5 */
+  section.left,
+  aside,
+  .three_col {
+    float: none;
+    width: 100%;
+    margin: 1.5em 0 0 0;
+  }
+  .embed { max-width: 100%; }
+  #menu_toggle { display: inline-block; }
+  #menu {
+    float: none;
+    clear: both;
+    margin: 0;
+    padding: 12px 0 0;            /* 8 → 12 */
+    display: none;
+  }
+  #menu.open { display: block; }
+  #menu li { float: none; margin: 0; }
+  #menu li ul { position: static; display: block; background: transparent; }
+  #menu li ul li a { padding-left: 24px; } /* 16 → 24 */
+  #userbox { float: none; padding: 12px 0 18px; } /* 8/12 → 12/18 */
+}
+
+/* High-DPI */
+@supports (image-set(url("") 1x)) {
+  #logo {
+    background-image: image-set(url("images/logo.png") 1x, url("images/logo@2x.png") 2x);
+  }
+  .button_buy_now {
+    background-image: image-set(url("images/buy_now.png") 1x, url("images/buy_now@2x.png") 2x);
+  }
+  #animals {
+    background-image: image-set(url("images/animals.png") 1x, url("images/animals@2x.png") 2x);
+  }
+}
