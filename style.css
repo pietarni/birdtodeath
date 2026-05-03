@@ -12,14 +12,13 @@ html { overflow-x: hidden; scroll-behavior: smooth; }
   --header-height: clamp(75px, 3.90625vw, 100px);
   --logo-width: clamp(390px, 20.3125vw, 519px);
   --logo-height: clamp(72px, 3.75vw, 96px);
-  --logo-size: clamp(52px, 2.708vw, 69px);
   --nav-gap: clamp(15px, .78125vw, 20px);
   --left-width: clamp(960px, 50vw, 1277px);
   --side-width: clamp(450px, 23.4375vw, 599px);
   --side-top: clamp(345px, 17.96875vw, 459px);
   --video-width: clamp(945px, 49.21875vw, 1257px);
   --button-width: clamp(318px, 16.5625vw, 423px);
-  --button-height: clamp(66px, 3.4375vw, 88px);
+  --button-height: clamp(121px, 6.3125vw, 161px);
 }
 
 body {
@@ -47,8 +46,8 @@ body {
 
 header {
   height: var(--header-height);
-  background: #211710 url("images/bg_top.png") repeat-x center top;
-  background-size: auto 100%;
+  background: #211710 url("images/bg_top.png") no-repeat center top;
+  background-size: 100% auto;
 }
 
 #header_container {
@@ -63,20 +62,10 @@ header {
   float: left;
   width: var(--logo-width);
   height: var(--logo-height);
+  background: url("images/logo.png") no-repeat center center;
+  background-size: contain;
   overflow: hidden;
-  color: #fff4c7;
-  font-size: var(--logo-size);
-  line-height: var(--logo-height);
-  font-weight: 900;
-  letter-spacing: 0;
-  text-decoration: none;
-  text-shadow:
-    0 4px 0 #5b2518,
-    3px 0 0 #160b08,
-    -3px 0 0 #160b08,
-    0 -3px 0 #160b08,
-    0 3px 0 #160b08,
-    0 0 12px #000;
+  text-indent: -9999px;
 }
 
 #menu_toggle {
@@ -181,8 +170,8 @@ a:hover { color: #fff; }
   display: inline-block;
   width: var(--button-width);
   height: var(--button-height);
-  background: url("images/buy_now.png") no-repeat;
-  background-size: var(--button-width) var(--button-height);
+  background: url("images/buy_now.png") no-repeat center center;
+  background-size: contain;
   image-rendering: pixelated;
   text-indent: -9999px;
   overflow: hidden;
