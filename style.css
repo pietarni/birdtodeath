@@ -155,7 +155,7 @@ section.left { min-width: 0; }
 aside {
   min-width: 0;
   text-align: center;
-  padding-top: clamp(0px, 8vw, 120px);
+  padding-top: 0;
   background: url("images/animals.png") no-repeat top center;
   background-size: min(100%, var(--side-width)) auto;
   image-rendering: pixelated;
@@ -210,17 +210,44 @@ a:focus-visible {
   font-size: inherit;
   line-height: 1.45;
   text-shadow: var(--text-shadow);
-  padding-top: clamp(180px, 38vw, 360px);
+  /* animals.png is 1058×932 — clear gap below artwork before buttons */
+  padding-top: calc(88% + 2.25rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.85em;
 }
 
+.steam-wishlist {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  min-height: 48px;
+  padding: 0.55em 1.15em;
+  color: #d2e885;
+  background: linear-gradient(180deg, #799905 0%, #536904 100%);
+  border: 1px solid #3d4f03;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.steam-wishlist:hover {
+  color: #fff;
+  background: linear-gradient(180deg, #8eb206 0%, #5f7a05 100%);
+}
+
+.steam-icon {
+  width: 1.35em;
+  height: 1.35em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 .side-steam {
   margin: 0;
-  color: var(--mobile-accent);
-  font-weight: 700;
   text-align: center;
 }
 
@@ -331,7 +358,7 @@ a:focus-visible {
   }
 
   .side_links {
-    padding-top: clamp(160px, 55vw, 280px);
+    padding-top: calc(88% + 1.75rem);
   }
 }
 
@@ -408,6 +435,19 @@ a:focus-visible {
     font-size: 1rem;
     text-align: center;
     text-shadow: var(--text-shadow);
+  }
+
+  .mobile-steam {
+    margin-top: 0.35rem;
+    padding: 0.85rem 1.15rem;
+    font-size: 1.1rem;
+    width: 100%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+
+  .mobile-steam:active {
+    filter: brightness(1.08);
+    transform: scale(0.98);
   }
 
   .mobile-discord {
@@ -523,5 +563,6 @@ a:focus-visible {
   html { scroll-behavior: auto; }
 
   .mobile-social a:active,
-  .mobile-discord:active { transform: none; }
+  .mobile-discord:active,
+  .mobile-steam:active { transform: none; }
 }
