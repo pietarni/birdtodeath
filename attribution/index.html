@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Data and 3D asset attributions for Helsinki Online.">
+<title>Attributions — Helsinki Online</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="wrap">
+  <header class="desktop-header">
+    <div id="header_container">
+      <a id="logo" href="../" aria-label="Helsinki Online home">Helsinki Online</a>
+      <button id="menu_toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        <li><a href="../">Home</a></li>
+        <li><a href="https://store.steampowered.com/app/4958560/Helsinki_Online/" target="_blank" rel="noopener noreferrer">Wishlist</a></li>
+        <li><a href="https://discord.gg/TsgS3FxcHS">Community</a></li>
+        <li><a href="https://pietari.xyz/">About me</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main" class="attribution-page">
+    <p class="attribution-back"><a href="../">← Back to Helsinki Online</a></p>
+
+    <h1>DATA &amp; 3D ASSET ATTRIBUTIONS</h1>
+
+    <section class="attribution-block">
+      <h2>City of Helsinki 3D Models</h2>
+      <p>Helsingin 3D-kaupunkimallit<br>
+      Source / original creator: City of Helsinki<br>
+      Helsinki City Executive Office<br>
+      Obtained via Helsinki Region Infoshare (HRI)<br>
+      Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>Helsinki Region Land Cover Dataset</h2>
+      <p>Helsingin seudun maanpeiteaineisto<br>
+      Source / original creators: Helsinki Region Environmental Services Authority (HSY) and municipalities of the Helsinki region<br>
+      Maintainer: Helsinki Region Environmental Services Authority (HSY)<br>
+      Obtained via Helsinki Region Infoshare (HRI)<br>
+      Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>City of Helsinki General Areas Register</h2>
+      <p>Helsingin kaupungin yleisten alueiden rekisteri (Yleisten alueiden rekisteri / Ylre)<br>
+      Source: City of Helsinki<br>
+      Maintainer: City of Helsinki Urban Environment Division / Built Asset Management<br>
+      Obtained via Helsinki Region Infoshare (HRI)<br>
+      Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>OpenStreetMap</h2>
+      <p>Contains data © OpenStreetMap contributors.<br>
+      OpenStreetMap data is available under the Open Data Commons Open Database License (ODbL).</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>Silja Line M/S Silja Symphony (1991)</h2>
+      <p>“Silja Line M/S Silja Symphony (1991)” by FHA_studios (FHA_ships)<br>
+      Source: Sketchfab<br>
+      Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).<br>
+      Modified/converted for use in this project where applicable.</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>Generic Passenger Car Pack</h2>
+      <p>“Generic passenger car pack” by Comrade1280<br>
+      Source: Sketchfab<br>
+      Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).<br>
+      Modified/converted for use in this project where applicable.</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>Easy Bike System</h2>
+      <p>“Easy Bike System” by RayznGames<br>
+      Source: Unity Asset Store<br>
+      Used under the Standard Unity Asset Store End User License Agreement (EULA).<br>
+      This asset is not Creative Commons licensed.</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>City of Helsinki Street-Furniture 3D Models</h2>
+      <p>Kaupunkikalusteiden 3D-mallit<br>
+      Source: City of Helsinki, Urban Environment Division / Helsingin Kaupunkitilaohje.</p>
+      <p>The source page states that the City of Helsinki's furniture model files and drawings have been made available for everyone's use. No explicit Creative Commons licence for these specific model files has been identified here, so they are not represented as CC BY 4.0 material.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+const btn = document.getElementById('menu_toggle');
+const menu = document.getElementById('menu');
+
+if (btn && menu) {
+  function setMenuOpen(open) {
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  }
+
+  btn.addEventListener('click', () => {
+    setMenuOpen(!menu.classList.contains('open'));
+  });
+
+  menu.addEventListener('click', event => {
+    if (event.target.tagName === 'A') {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.classList.contains('open')) {
+      setMenuOpen(false);
+      btn.focus();
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (!menu.classList.contains('open')) return;
+    if (menu.contains(event.target) || btn.contains(event.target)) return;
+    setMenuOpen(false);
+  });
+}
+</script>
+
+</body>
+</html>
