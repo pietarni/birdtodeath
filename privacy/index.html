@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Privacy policy for Helsinki Online.">
+<title>Privacy Policy — Helsinki Online</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="wrap">
+  <header class="desktop-header">
+    <div id="header_container">
+      <a id="logo" href="../" aria-label="Helsinki Online home">Helsinki Online</a>
+      <button id="menu_toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        <li><a href="../">Home</a></li>
+        <li><a href="https://store.steampowered.com/app/4958560/Helsinki_Online/" target="_blank" rel="noopener noreferrer">Wishlist</a></li>
+        <li><a href="https://discord.gg/TsgS3FxcHS">Community</a></li>
+        <li><a href="https://albedodelight.com/">About me</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main" class="attribution-page">
+    <p class="attribution-back"><a href="../">← Back to Helsinki Online</a></p>
+
+    <h1>PRIVACY POLICY</h1>
+    <p>Last updated 13 October 2026.</p>
+
+    <section class="attribution-block">
+      <h2>Who</h2>
+      <p>Helsinki Online is made by Pietari Niinimäki, Finland. Contact: <a href="mailto:pietari@albedo.fi">pietari@albedo.fi</a></p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>What the game sends</h2>
+      <p><b>Bug reports</b>, only when you press Send: your text, the name or Discord you optionally type, a screenshot, the game log, PC specs, FPS and where you are in the game.</p>
+      <p><b>Playtest data</b>, only if you choose "Yes, share": FPS and performance stats, PC specs and the game log, sent when you quit or after a crash.</p>
+      <p>The game log is technical: settings, errors and what happened in the game. Your Windows username is removed from it before sending. Both come with a random playtest ID, not your name or Steam account.</p>
+      <p>This is used only to fix bugs and improve performance, based on your consent. Nothing is sold or used for ads.</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>Where it goes</h2>
+      <p>Reports and playtest data go to a private Discord channel that only I read. Discord may store them outside the EU.</p>
+      <p>Playing online connects you through Photon (multiplayer servers), which sees your IP address. The in-game map search uses OpenStreetMap, and live buses come from HSL.</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>How long</h2>
+      <p>Reports and playtest data are deleted when no longer needed, at the latest 12 months after they were sent.</p>
+    </section>
+
+    <section class="attribution-block">
+      <h2>Your rights</h2>
+      <p>You can turn playtest data off at any time on the start screen. To see or delete what you have sent, email me with your playtest ID (shown in the Report a bug window). You can also complain to the Finnish Data Protection Ombudsman (<a href="https://tietosuoja.fi/en">tietosuoja.fi</a>).</p>
+    </section>
+  </main>
+</div>
+
+<script>
+const btn = document.getElementById('menu_toggle');
+const menu = document.getElementById('menu');
+
+if (btn && menu) {
+  function setMenuOpen(open) {
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  }
+
+  btn.addEventListener('click', () => {
+    setMenuOpen(!menu.classList.contains('open'));
+  });
+
+  menu.addEventListener('click', event => {
+    if (event.target.tagName === 'A') {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.classList.contains('open')) {
+      setMenuOpen(false);
+      btn.focus();
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (!menu.classList.contains('open')) return;
+    if (menu.contains(event.target) || btn.contains(event.target)) return;
+    setMenuOpen(false);
+  });
+}
+</script>
+
+</body>
+</html>
